@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
-        <meta charset="utf-8" http-equiv="Content-Type">
+        <meta charset="utf-8" http-equiv="Content-Type" content="text/html; charset=utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <title>PDF Generator</title>
@@ -19,28 +19,35 @@
        <nav class="navbar navbar-expand-sm navbar-light bg-light">
            <a class="navbar-brand ml-5" href="#">PDF Generator</a>
        </nav>
-       <div class="container mt-5">
+       <div class="container contact mt-5">
             <div class="row">
                 <div class="col-md-8 offset-md-2">
-                <form action="{{ url('pdf_download') }}" method="POST" accept-charset="Utf-8">
+                <form action="{{  route('pdf_download@PdfController') }}" method="POST" accept-charset="Utf-8">
 
                         @csrf
 
                         <div class="form-group">
                           <label for="fname">First Name</label>
                           <input name="name" type="text" class="form-control" id="name" aria-describedby="emailHelp">
+
                         <span class="text-danger">{{ $errors->first('name')}}</span>
                         </div>
 
                         <div class="form-group">
                           <label for="email">Email</label>
+
                           <input name="email" type="email" class="form-control" id="email">
+
                         <span class="text-danger">{{ $errors->first('email') }}</span>
                         </div>
 
                         <div class="form-group">
                             <label for="comment">Comment</label>
+
                             <textarea name="message" class="form-control" id="message" rows="3"></textarea>
+
+                            <textarea class="form-control" id="message" name="message" rows="3"></textarea>
+
                             <span>{{ $errors->first('message') }}</span>
                         </div>
 
