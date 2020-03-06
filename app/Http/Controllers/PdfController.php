@@ -20,14 +20,15 @@ class PdfController extends Controller
         //     'message' => 'required'
         // ]);
 
-        $data = [
+        $data = array(
             'name' => $request->name,
             'email' => $request->email,
             'message' => $request->message
-        ];
+        );
 
         $pdf = PDF::loadView('pdf_download', $data);
+        
 
-        return $pdf->download('file.pdf');
+        return dd($data);
     }
 }
