@@ -12,7 +12,7 @@
 
         <!-- Styles -->
         <style>
-          
+
         </style>
     </head>
     <body>
@@ -25,25 +25,25 @@
                 <form action="{{ url('pdf_download') }}" method="POST" accept-charset="Utf-8">
 
                         @csrf
-                
+
                         <div class="form-group">
                           <label for="fname">First Name</label>
-                          <input type="text" class="form-control" id="name" aria-describedby="emailHelp">
+                          <input name="name" type="text" class="form-control" id="name" aria-describedby="emailHelp">
                         <span class="text-danger">{{ $errors->first('name')}}</span>
                         </div>
-                
+
                         <div class="form-group">
                           <label for="email">Email</label>
-                          <input type="email" class="form-control" id="email">
+                          <input name="email" type="email" class="form-control" id="email">
                         <span class="text-danger">{{ $errors->first('email') }}</span>
                         </div>
-                       
+
                         <div class="form-group">
                             <label for="comment">Comment</label>
-                            <textarea class="form-control" id="message" rows="3"></textarea>
+                            <textarea name="message" class="form-control" id="message" rows="3"></textarea>
                             <span>{{ $errors->first('message') }}</span>
                         </div>
-                
+
                         <button type="submit" class="btn btn-primary">Submit</button>
                       </form>
                 </div>
